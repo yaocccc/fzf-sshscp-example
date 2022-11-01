@@ -11,8 +11,10 @@
   
   添加
   
-  aliased to ~/.ssh/scp.sh
-  aliased to ~/.ssh/ssh.sh
+  alias scp=~/.ssh/scp.sh
+  alias ssh=~/.ssh/ssh.sh
+
+  到你的终端配置中
 ```
 
 终端上使用 ssh、scp 使用即可，注意 本demo 依赖 fzf
