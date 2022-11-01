@@ -14,16 +14,12 @@ _preview2() {
     [ "$target" = "从远程到本地" ] && echo "scp -r ${targets[index]}:[SOURCE] ."
 }
 
-_judge() {
-    target="$1"
-}
-
-SCP() {
+_scp() {
     # 默认fzfopt
     fzfopt='--cycle --header-first --preview-window=bottom:1:wrap,border-up'
 
     # 选择服务器
-    server=$(_list | fzf $fzfopt --header=请选择服务器 --preview="~/.ssh/scp.sh preview1 {}" --height=10)
+    server=$(_list | fzf $fzfopt --header=请选择服务器 --preview="~/.ssh/scp.sh preview1 {}")
     [[ -z "$server" ]] && exit 0
 
     # 选择方向
@@ -49,7 +45,7 @@ SCP() {
 }
 
 case $1 in
-    '') SCP ;;
+    '') _scp ;;
     preview1) _preview1 "$2" ;;
     preview2) _preview2 "$2" "$3" ;;
     *) scp $* ;;

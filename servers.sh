@@ -8,7 +8,7 @@ set_server() {
 }
 
 # set_server name cmd target(user@host) host
-set_server '1.demo' 'ssh'                        'root@demo1'       'demo1'
+set_server '1.demo' 'ssh'                        'root@demo'        'demo'
 set_server '2.demo' 'ssh -R 2489:127.0.0.1:2489' 'root@121.4.29.84' '121.4.29.84'
 
 _list() {
